@@ -6,6 +6,27 @@ export const stores = [
     phone: '+213 555 00 11 22',
     mapLink: 'https://maps.google.com/?q=Bouira+centre+ville',
   },
+  {
+    id: 's2',
+    name: 'Venom Mobile — Alger',
+    address: 'Didouche Mourad, Alger Centre, Alger 16000',
+    phone: '+213 555 00 11 23',
+    mapLink: 'https://maps.google.com/?q=Didouche+Mourad+Alger',
+  },
+  {
+    id: 's3',
+    name: 'Venom Mobile — Blida',
+    address: 'Boulevard Larbi Tebessi, Blida 09000',
+    phone: '+213 555 00 11 24',
+    mapLink: 'https://maps.google.com/?q=Blida+centre+ville',
+  },
+  {
+    id: 's4',
+    name: 'Venom Mobile — Sétif',
+    address: 'Avenue de l\u2019ALN, Centre-ville, Sétif 19000',
+    phone: '+213 555 00 11 25',
+    mapLink: 'https://maps.google.com/?q=Setif+centre+ville',
+  },
 ]
 
 export const wilayas = [

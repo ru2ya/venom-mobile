@@ -54,7 +54,7 @@ export default function ProductDetail() {
         { label: product.name },
       ]} />
 
-      <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 mt-6">
+      <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 mt-6" data-reveal>
         <ProductGallery images={product.images} name={product.name} />
 
         {/* Info panel */}
@@ -154,7 +154,7 @@ export default function ProductDetail() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-14 border-b border-gray-200 flex gap-8 overflow-x-auto">
+      <div className="mt-14 border-b border-gray-200 flex gap-8 overflow-x-auto" data-reveal>
         {[['specs', 'Caractéristiques'], ['description', 'Description'], ['reviews', `Avis (${product.reviews.length})`]].map(([key, label]) => (
           <button key={key} onClick={() => setTab(key)}
             className={`pb-3.5 text-sm font-semibold whitespace-nowrap border-b-2 -mb-px transition-colors ${

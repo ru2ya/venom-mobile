@@ -144,7 +144,7 @@ export default function Shop() {
             <p className="text-gray-500 py-16 text-center">Aucun produit ne correspond à votre recherche.</p>
           ) : (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4" data-reveal-stagger>
                 {filtered.slice(0, visible).map((p) => <ProductCard key={p.id} product={p} />)}
               </div>
               {visible < filtered.length && (

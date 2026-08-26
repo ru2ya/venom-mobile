@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Truck, ShieldCheck, Banknote, RotateCcw, Smartphone, Package, MapPin, Sparkles, ChevronRight, ArrowUpRight } from 'lucide-react'
-import { useRef, useEffect, useState } from 'react'
+import { Truck, ShieldCheck, Banknote, RotateCcw, Package, MapPin, Sparkles, ChevronRight, ArrowUpRight } from 'lucide-react'
+import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProductCard from '../../components/storefront/product/ProductCard'
 import Button from '../../components/ui/Button'
 import Marquee from '../../components/ui/Marquee'
@@ -11,54 +9,19 @@ import BlurFade from '../../components/ui/BlurFade'
 import BorderBeam from '../../components/ui/BorderBeam'
 import Badge from '../../components/ui/Badge'
 import { useAdminData } from '../../context/AdminDataContext'
-
-gsap.registerPlugin(ScrollTrigger)
+import { brands } from '../../data/mock/categories'
 
 const off = (p) => (p.oldPrice ? Math.round((1 - p.variants[0].price / p.oldPrice) * 100) : 0)
 
 export default function Home() {
   const { products, categories, stores } = useAdminData()
-  const rootRef = useRef(null)
 
   const deals = products.filter((p) => p.isDeal && p.oldPrice)
   const newArrivals = products.filter((p) => p.isNew)
   const occasions = products.filter((p) => p.variants.some((v) => v.condition === 'Occasion'))
 
-  // GSAP scroll-triggered reveals
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray('.gs-stagger').forEach((container) => {
-        const items = container.children
-        if (!items.length) return
-        gsap.from(items, {
-          y: 32,
-          opacity: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          stagger: 0.07,
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: container,
-            start: 'top 92%',
-            once: true,
-            invalidateOnRefresh: true,
-          },
-        })
-      })
-      ScrollTrigger.refresh()
-    }, rootRef)
-    const onLoad = () => ScrollTrigger.refresh()
-    window.addEventListener('load', onLoad)
-    const t = setTimeout(() => ScrollTrigger.refresh(), 800)
-    return () => {
-      window.removeEventListener('load', onLoad)
-      clearTimeout(t)
-      ctx.revert()
-    }
-  }, [])
-
   return (
-    <div ref={rootRef}>
+    <div>
       {/* Trust marquee */}
       <Marquee duration={28} pauseOnHover className="bg-primary-dark text-white text-xs py-2">
         {[
@@ -80,21 +43,14 @@ export default function Home() {
       {/* Brands */}
       <section className="max-w-7xl mx-auto px-4 pt-14 pb-4">
         <SectionTitle title="Nos marques" link="/boutique" />
-        <div className="gs-stagger grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {categories.map((c) => {
-            const img = products.find((p) => p.category === c.name)?.images?.[0]
-            const count = products.filter((p) => p.category === c.name).length
+        <div className="gs-stagger grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {brands.map((b) => {
+            const cat = categories.find((c) => c.name === b.name)
             return (
-              <Link key={c.id} to={`/boutique?categorie=${c.id}`}
-                className="group relative rounded-xl overflow-hidden h-40 flex flex-col justify-end text-left transition-all hover:shadow-lg hover:scale-[1.02]"
-                style={img ? { backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="relative z-10 p-4">
-                  <Smartphone size={22} className="mb-1.5 text-white/80" />
-                  <p className="font-bold text-sm text-white leading-tight">{c.name}</p>
-                  <p className="text-[11px] text-white/60 mt-0.5">{count} modèles</p>
-                </div>
+              <Link key={b.name} to={cat ? `/boutique?categorie=${cat.id}` : '/boutique'}
+                className="group flex items-center justify-center h-40 transition-all hover:scale-105">
+                <img src={b.logo} alt={b.name} loading="lazy"
+                  className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
               </Link>
             )
           })}
@@ -186,7 +142,7 @@ function DealZone({ deals }) {
   return (
     <section className="mt-14 bg-slate-950 dot-pattern py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-end justify-between mb-7">
+        <div className="flex items-end justify-between mb-7" data-reveal>
           <div>
             <p className="text-primary-300 text-xs font-bold uppercase tracking-[0.2em] mb-1">Offres limitées</p>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">Affaires du jour</h2>
@@ -198,7 +154,7 @@ function DealZone({ deals }) {
 
         <div className="grid lg:grid-cols-5 gap-5">
           {/* Featured deal */}
-          <Link to={`/produit/${featured.id}`} className="lg:col-span-2 group relative rounded-2xl overflow-hidden min-h-[320px] block">
+          <Link to={`/produit/${featured.id}`} data-reveal className="lg:col-span-2 group relative rounded-2xl overflow-hidden min-h-[320px] block">
             <img src={featured.images[0]} alt={featured.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
@@ -219,7 +175,7 @@ function DealZone({ deals }) {
           </Link>
 
           {/* Other deals */}
-          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4 content-start">
+          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4 content-start" data-reveal-stagger>
             {rest.slice(0, 4).map((p) => (
               <Link key={p.id} to={`/produit/${p.id}`}
                 className="group flex items-center gap-4 bg-white/[0.06] border border-white/10 rounded-2xl p-3.5 hover:border-primary-400/60 hover:bg-white/[0.09] transition-all">
@@ -254,7 +210,7 @@ function BrandExplorer({ categories, products }) {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-7">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-7" data-reveal>
           <div>
             <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-1">Explorer</p>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Choisissez votre marque</h2>
@@ -265,7 +221,7 @@ function BrandExplorer({ categories, products }) {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8" data-reveal>
           {categories.map((c) => (
             <button
               key={c.id}
@@ -324,7 +280,7 @@ function BrandExplorer({ categories, products }) {
 function ArrivalsList({ items }) {
   return (
     <section className="max-w-7xl mx-auto px-4 pb-14">
-      <div className="flex items-end justify-between mb-2">
+      <div className="flex items-end justify-between mb-2" data-reveal>
         <div>
           <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-1">Fraîchement arrivés</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Nouveautés</h2>
@@ -334,7 +290,7 @@ function ArrivalsList({ items }) {
         </Link>
       </div>
 
-      <div className="grid lg:grid-cols-2 lg:gap-x-14">
+      <div className="grid lg:grid-cols-2 lg:gap-x-14" data-reveal-stagger>
         {items.map((p, i) => (
           <Link
             key={p.id}
@@ -451,7 +407,7 @@ function HeroSection() {
 
 function SectionTitle({ title, link }) {
   return (
-    <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center justify-between mb-4" data-reveal>
       <h2 className="text-xl md:text-2xl font-bold text-gray-900">{title}</h2>
       {link && <Link to={link} className="text-sm font-semibold text-primary hover:underline">Tout voir</Link>}
     </div>

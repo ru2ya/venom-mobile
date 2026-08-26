@@ -60,8 +60,8 @@ export default function Contact() {
 
       {/* Social media */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Suivez-nous</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <h2 className="text-xl font-bold text-gray-900 mb-4" data-reveal>Suivez-nous</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" data-reveal-stagger>
           {socialLinks.map((s) => (
             <a
               key={s.name}
@@ -79,8 +79,8 @@ export default function Contact() {
 
       {/* All stores with maps */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Nos magasins</h2>
-        <div className="space-y-6">
+        <h2 className="text-xl font-bold text-gray-900 mb-4" data-reveal>Nos magasins</h2>
+        <div className="space-y-6" data-reveal-stagger>
           {stores.map((s) => (
             <div key={s.id} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
               <div className="grid md:grid-cols-2">
@@ -128,7 +128,7 @@ export default function Contact() {
       </section>
 
       {/* Delivery coverage */}
-      <section className="bg-gray-50 border border-gray-200 rounded-2xl p-6 text-center">
+      <section className="bg-gray-50 border border-gray-200 rounded-2xl p-6 text-center" data-reveal>
         <h2 className="text-xl font-bold text-gray-900 mb-2">Livraison dans les 58 wilayas</h2>
         <p className="text-gray-500 text-sm max-w-xl mx-auto">
           Nous livrons partout en Algérie. Paiement à la livraison disponible.

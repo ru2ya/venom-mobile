@@ -40,7 +40,7 @@ export default function ProductForm({ product, onDone }) {
       reviews: product.reviews ?? [],
       warranty: product.warranty ?? '12 mois',
       status: product.status ?? 'active',
-      images: form.images ? [form.images] : [`https://picsum.photos/seed/${encodeURIComponent(form.name)}/600/600`],
+      images: form.images ? [form.images] : ['/phones/samsung_a06.jpg'],
       variants: variants.map((v, i) => ({
         id: v.id || `v${Date.now()}${i}`,
         ram: v.ram || '-',
