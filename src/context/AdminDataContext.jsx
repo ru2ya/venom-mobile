@@ -13,7 +13,7 @@ export function AdminDataProvider({ children }) {
   const [orders, setOrders] = useState(() => makeMockOrders(seedProducts))
   const [wilayas, setWilayas] = useState(seedWilayas)
   const [settings, setSettings] = useState({
-    storeName: 'Venom Mobile',
+    storeName: 'PSG Phone DZ',
     phone: '+213 555 00 11 22',
     tagline: 'La tech à prix juste — livraison 58 wilayas',
     social: { instagram: '#', tiktok: '#', facebook: '#', youtube: '#' },

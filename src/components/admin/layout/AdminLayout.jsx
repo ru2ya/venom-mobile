@@ -24,9 +24,9 @@ export default function AdminLayout({ auth }) {
   const sidebar = (
     <div className="flex flex-col h-full bg-slate-900 text-gray-300">
       <div className="flex items-center gap-2 px-5 h-16 border-b border-white/10">
-        <img src="/logo.jpg" alt="Venom Mobile" className="w-8 h-8 rounded-lg object-cover" />
+        <img src="/logo.jpg" alt="PSG Phone DZ" className="w-8 h-8 rounded-lg object-cover" />
         <div>
-          <p className="text-white font-bold text-sm leading-tight">Venom Admin</p>
+          <p className="text-white font-bold text-sm leading-tight">PSG Admin</p>
           <p className="text-[11px] text-gray-500">Panneau de gestion</p>
         </div>
       </div>

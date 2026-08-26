@@ -17,7 +17,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
       <form onSubmit={submit} className="bg-white rounded-2xl p-8 w-full max-w-sm shadow-2xl">
         <div className="text-center mb-6">
-          <img src="/logo.jpg" alt="Venom Mobile" className="w-12 h-12 rounded-xl inline-block object-cover" />
+          <img src="/logo.jpg" alt="PSG Phone DZ" className="w-12 h-12 rounded-xl inline-block object-cover" />
           <h1 className="font-bold text-xl mt-3">Espace Administrateur</h1>
           <p className="text-sm text-gray-500">Accès réservé au personnel du magasin</p>
         </div>

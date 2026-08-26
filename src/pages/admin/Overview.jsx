@@ -59,7 +59,7 @@ export default function Overview() {
               <XAxis dataKey="day" fontSize={12} tickLine={false} axisLine={false} />
               <YAxis fontSize={11} tickFormatter={(v) => `${Math.round(v / 1000)}k`} tickLine={false} axisLine={false} />
               <Tooltip formatter={(v) => formatDA(v)} />
-              <Line type="monotone" dataKey="ventes" stroke="#2563eb" strokeWidth={2.5} dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="ventes" stroke="#3fb3ec" strokeWidth={2.5} dot={{ r: 3 }} />
             </LineChart>
           </ResponsiveContainer>
         </section>

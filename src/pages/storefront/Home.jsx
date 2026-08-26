@@ -70,7 +70,7 @@ export default function Home() {
       {occasions.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 pb-14">
           <BlurFade>
-            <div className="rounded-2xl border border-gray-200 bg-gradient-to-r from-primary-50 to-rose-50 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="rounded-2xl border border-gray-200 bg-gradient-to-r from-primary-50 to-blue-50 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
               <div className="flex items-center gap-4">
                 <span className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
                   <RotateCcw size={22} className="text-primary" />
@@ -352,7 +352,7 @@ function HeroSection() {
         {/* Mouse spotlight */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(520px circle at var(--mx, 50%) var(--my, 120px), rgba(210,57,101,0.08), transparent 70%)' }}
+          style={{ background: 'radial-gradient(520px circle at var(--mx, 50%) var(--my, 120px), rgba(63,179,236,0.08), transparent 70%)' }}
         />
 
         {/* Color glows */}

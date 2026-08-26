@@ -110,7 +110,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="col-span-2 md:col-span-4">
           <div className="flex items-center gap-2.5 mb-4">
-            <img src="/logo.jpg" alt="Venom Mobile" className="w-10 h-10 rounded-xl object-cover" />
+            <img src="/logo.jpg" alt="PSG Phone DZ" className="w-10 h-10 rounded-xl object-cover" />
             <span className="font-extrabold text-lg text-white">{settings.storeName}</span>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed max-w-xs">{settings.tagline}</p>
@@ -157,23 +157,17 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Stores */}
+        {/* Store */}
         <div className="col-span-2 md:col-span-4">
-          <ColTitle>Nos magasins</ColTitle>
-          <ul className="space-y-3">
-            {stores.slice(0, 4).map((s) => (
-              <li key={s.id}>
-                <a href={s.mapLink} target="_blank" rel="noreferrer"
-                  className="group flex items-start gap-2.5 text-sm hover:text-white transition-colors">
-                  <MapPin size={14} className="mt-0.5 shrink-0 text-primary-400" />
-                  <span>
-                    <span className="block text-gray-300">{s.name.replace('Venom Mobile — ', '')}</span>
-                    <span className="block text-xs text-gray-600 mt-0.5">{s.address}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ColTitle>Notre magasin</ColTitle>
+          <a href={stores[0]?.mapLink} target="_blank" rel="noreferrer"
+            className="group flex items-start gap-2.5 text-sm hover:text-white transition-colors">
+            <MapPin size={14} className="mt-0.5 shrink-0 text-primary-400" />
+            <span>
+              <span className="block text-gray-300">{stores[0]?.name.replace('PSG Phone DZ — ', '')}</span>
+              <span className="block text-xs text-gray-600 mt-0.5">{stores[0]?.address}</span>
+            </span>
+          </a>
         </div>
       </div>
 

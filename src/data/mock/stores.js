@@ -1,28 +1,28 @@
 export const stores = [
   {
     id: 's1',
-    name: 'Venom Mobile — Bouira',
+    name: 'PSG Phone DZ — Bouira',
     address: 'Rue Emir Abdelkader, Centre-ville, Bouira 10000',
     phone: '+213 555 00 11 22',
     mapLink: 'https://maps.google.com/?q=Bouira+centre+ville',
   },
   {
     id: 's2',
-    name: 'Venom Mobile — Alger',
+    name: 'PSG Phone DZ — Alger',
     address: 'Didouche Mourad, Alger Centre, Alger 16000',
     phone: '+213 555 00 11 23',
     mapLink: 'https://maps.google.com/?q=Didouche+Mourad+Alger',
   },
   {
     id: 's3',
-    name: 'Venom Mobile — Blida',
+    name: 'PSG Phone DZ — Blida',
     address: 'Boulevard Larbi Tebessi, Blida 09000',
     phone: '+213 555 00 11 24',
     mapLink: 'https://maps.google.com/?q=Blida+centre+ville',
   },
   {
     id: 's4',
-    name: 'Venom Mobile — Sétif',
+    name: 'PSG Phone DZ — Sétif',
     address: 'Avenue de l\u2019ALN, Centre-ville, Sétif 19000',
     phone: '+213 555 00 11 25',
     mapLink: 'https://maps.google.com/?q=Setif+centre+ville',

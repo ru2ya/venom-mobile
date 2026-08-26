@@ -71,7 +71,7 @@ export default function Header() {
           </button>
 
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <img src="/logo.jpg" alt="Venom Mobile" className="w-10 h-10 rounded-xl object-cover" />
+            <img src="/logo.jpg" alt="PSG Phone DZ" className="w-10 h-10 rounded-xl object-cover" />
             <span className="font-extrabold text-lg text-slate-900 hidden sm:block">{settings.storeName}</span>
           </Link>
 
@@ -257,7 +257,7 @@ export default function Header() {
               {/* Drawer header */}
               <div className="bg-primary-dark p-5 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <img src="/logo.jpg" alt="Venom Mobile" className="w-9 h-9 rounded-lg object-cover" />
+                  <img src="/logo.jpg" alt="PSG Phone DZ" className="w-9 h-9 rounded-lg object-cover" />
                   <span className="font-extrabold text-white">{settings.storeName}</span>
                 </div>
                 <button onClick={() => setDrawerOpen(false)} className="text-white/70 hover:text-white transition-colors">

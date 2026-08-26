@@ -3,7 +3,7 @@ import Breadcrumb from '../../components/ui/Breadcrumb'
 import { useAdminData } from '../../context/AdminDataContext'
 
 const socialLinks = [
-  { name: 'Instagram', color: 'bg-gradient-to-br from-primary via-pink-500 to-orange-400', url: 'instagram' },
+  { name: 'Instagram', color: 'bg-gradient-to-br from-primary via-blue-400 to-indigo-500', url: 'instagram' },
   { name: 'Facebook', color: 'bg-blue-600', url: 'facebook' },
   { name: 'TikTok', color: 'bg-slate-900', url: 'tiktok' },
   { name: 'YouTube', color: 'bg-red-600', url: 'youtube' },
@@ -37,13 +37,13 @@ export default function Contact() {
               <p className="font-semibold truncate">{settings.phone}</p>
             </div>
           </a>
-          <a href="mailto:contact@venommobile.dz" className="flex items-center gap-3 bg-white/10 hover:bg-white/15 rounded-xl p-4 transition-colors min-w-0">
+          <a href="mailto:contact@psgphonedz.dz" className="flex items-center gap-3 bg-white/10 hover:bg-white/15 rounded-xl p-4 transition-colors min-w-0">
             <span className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
               <Mail size={18} className="text-blue-400" />
             </span>
             <div className="min-w-0">
               <p className="text-xs text-gray-400">Envoyez un email</p>
-              <p className="font-semibold truncate">contact@venommobile.dz</p>
+              <p className="font-semibold truncate">contact@psgphonedz.dz</p>
             </div>
           </a>
           <div className="flex items-center gap-3 bg-white/10 rounded-xl p-4">
@@ -91,7 +91,7 @@ export default function Contact() {
                       <MapPin size={18} className="text-primary" />
                     </span>
                     <div>
-                      <h3 className="font-bold text-lg text-gray-900">{s.name.replace('Venom Mobile — ', '')}</h3>
+                      <h3 className="font-bold text-lg text-gray-900">{s.name.replace('PSG Phone DZ — ', '')}</h3>
                       <p className="text-sm text-gray-500 mt-1">{s.address}</p>
                     </div>
                   </div>

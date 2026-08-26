@@ -4,8 +4,8 @@ export default function BorderBeam({
   size = 80,
   duration = 6,
   delay = 0,
-  colorFrom = '#fded21',
-  colorTo = '#d23965',
+  colorFrom = '#3fb3ec',
+  colorTo = '#203857',
   reverse = false,
 }) {
   return (
